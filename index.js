@@ -60,12 +60,6 @@ const questions = [
    
 {
     type: "input",
-    message: "Enter questions.",
-    name: "questions"
-},
-   
-{
-    type: "input",
     message: "Add your GitHub profile picture.",
     name: "picture"
 },
@@ -79,7 +73,8 @@ const questions = [
 ];
 
 // -- They give us a writeToFile() FUNCTION, Looks like we may need to read/write to a file. What BUILT-IN node module will help us out with this (?) -- // 
-function writeToFile(fileName, data) {
+// fs tool from node.js to write files
+function writeToFile(fileName, data) { 
     const fs = require("fs");
     fs.writeFile(fileName, data, (err) => {
         if (err) {
@@ -96,27 +91,12 @@ function init() {
     //     // const element = questions[i];
 
     // }
+    // used inquirer to grab input from user
     var inquirer = require("inquirer");
     var generateMarkdown = require("./utils/generateMarkdown.js")
     inquirer
         .prompt(
             questions
-            //     {
-            //       type: "input",
-            //       message: "What is your user name?",
-            //       name: "username"
-            //     },
-            //     {
-            //       type: "password",
-            //       message: "What is your password?",
-            //       name: "password"
-            //     },
-            //     {
-            //       type: "password",
-            //       message: "Re-enter password to confirm:",
-            //       name: "confirm"
-            //     }
-            //   ]
         )
         .then(function (response) {
             // if (response.confirm === response.password) {
