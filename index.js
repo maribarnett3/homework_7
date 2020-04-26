@@ -33,47 +33,47 @@ const questions = [
 {
     type: "input",
     message: "Input installation intructions.",
-    name: "description"
+    name: "instructions"
 },
 {
     type: "input",
     message: "Input usage.",
-    name: "description"
+    name: "usage"
 },
 
 {
     type: "input",
     message: "License.",
-    name: "description"
+    name: "license"
 },
 
 {
     type: "input",
     message: "Contributers.",
-    name: "description"
+    name: "contributers"
 },
 {
     type: "input",
     message: "input tests ",
-    name: "description"
+    name: "tests"
 },
    
 {
     type: "input",
     message: "Enter questions.",
-    name: "description"
+    name: "questions"
 },
    
 {
     type: "input",
     message: "Add your GitHub profile picture.",
-    name: "description"
+    name: "picture"
 },
 
 {
     type: "input",
     message: "Enter you GitHub email.",
-    name: "description"
+    name: "email"
 },
     
 ];
@@ -91,13 +91,13 @@ function writeToFile(fileName, data) {
 // -- This is a fairly common programming construct. They are just giving us a FUNCTION to INITIALIZE or SETUP our project parameter. It's also where we usually kick off our project flow -- //
 function init() {
     // prompt questions for inputs
-    for (let i = 0; i < questions.length; i++) {
-        console.log(questions[i]);
-        // const element = questions[i];
+    // for (let i = 0; i < questions.length; i++) {
+    //     console.log(questions[i]);
+    //     // const element = questions[i];
 
-    }
+    // }
     var inquirer = require("inquirer");
-    var generateMarkdown = require("utils/generateMarkdown")
+    var generateMarkdown = require("./utils/generateMarkdown.js")
     inquirer
         .prompt(
             questions
@@ -123,9 +123,9 @@ function init() {
             //     console.log("Success!");
             //   }
             console.log(JSON.stringify(response))
-            // var data = generateMarkdown(response)
+            var data = generateMarkdown(response)
             // write to readme
-            writeToFile("example.md", response);
+            writeToFile("example.md", data);
         });
 
 }
